@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">OVIKU_proj</string>
     <string name="welcome_text">Welcome to </string>
+    <string name="create_new_account"><u>Create new account</u></string>
+    <string name="sign_in">Sign In</string>
+    <string name="set_up_lock">Set up your lock</string>
 </resources>

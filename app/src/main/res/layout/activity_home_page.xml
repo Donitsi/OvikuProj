@@ -33,6 +33,34 @@
         android:layout_centerHorizontal="true"/>
 
 
-    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_in"
+        android:text="@string/sign_in"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="40dp"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/set_up_lock"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/sign_in"
+        android:text="@string/set_up_lock"
+        android:layout_marginTop="5dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/create_account"
+        android:text="@string/create_new_account"
+        android:textColorHighlight="#3d4be2"
+        android:layout_below="@+id/set_up_lock"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"/>
 
 </RelativeLayout>
