@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OVIKU_proj</string>
+    <string name="welcome_text">Welcome to </string>
 </resources>
