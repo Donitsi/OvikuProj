@@ -4,4 +4,7 @@
     <string name="create_new_account"><u>Create new account</u></string>
     <string name="sign_in">Sign In</string>
     <string name="set_up_lock">Set up your lock</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="next_button">Next</string>
 </resources>
