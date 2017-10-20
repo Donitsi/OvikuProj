@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomePage" />
-        <activity android:name=".CreateAccountPage"></activity>
+        <activity android:name=".CreateAccountPage" />
+        <activity android:name=".SignInPage" />
+        <activity android:name=".MainPage"></activity>
     </application>
 
 </manifest>

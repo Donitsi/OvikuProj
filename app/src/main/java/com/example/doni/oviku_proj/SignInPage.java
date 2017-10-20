@@ -5,23 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class HomePage extends Activity {
+public class SignInPage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_sign_in_page);
     }
 
-    public void CreateAccount(View view) {
-        Intent homeIntent = new Intent(HomePage.this, CreateAccountPage.class);
-        startActivity(homeIntent);
-        finish();
-    }
-
-    public void SignIn(View view) {
-        Intent homeIntent = new Intent(HomePage.this, SignInPage.class);
+    public void LogIn(View view) {
+        Intent homeIntent = new Intent(SignInPage.this, MainPage.class);
         startActivity(homeIntent);
         finish();
     }
