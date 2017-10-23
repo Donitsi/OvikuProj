@@ -62,7 +62,9 @@ public class MainPage extends AppCompatActivity {
                         Toast.makeText(MainPage.this, "Action Access clicked!", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_history:
-                        Toast.makeText(MainPage.this, "Action History clicked!", Toast.LENGTH_SHORT).show();
+                        Intent homeIntent = new Intent(MainPage.this, HistoryPage.class);
+                        startActivity(homeIntent);
+                        finish();
                         break;
                     case R.id.action_more:
                         Toast.makeText(MainPage.this, "Action More clicked!", Toast.LENGTH_SHORT).show();

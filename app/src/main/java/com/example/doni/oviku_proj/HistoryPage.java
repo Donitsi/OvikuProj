@@ -1,11 +1,13 @@
 package com.example.doni.oviku_proj;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class HistoryPage extends AppCompatActivity {
@@ -16,12 +18,28 @@ public class HistoryPage extends AppCompatActivity {
 
     String[] TIME = {"18:42", "20:22", "21:33", "22:24"};
 
-    //CustomAdapter customAdapter = new CustomAdapter();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_page);
+
+        ListView listView = (ListView)findViewById(R.id.history_list);
+        CustomAdapter customAdapter = new CustomAdapter();
+
+        listView.setAdapter(customAdapter);
+
+        ImageView backButton = (ImageView)findViewById(R.id.back_button_in_history);
+
+        backButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent homeIntent = new Intent(HistoryPage.this, MainPage.class);
+                startActivity(homeIntent);
+                finish();
+            }
+        });
     }
 
 
@@ -45,7 +63,7 @@ public class HistoryPage extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup parent) {
 
-            view = getLayoutInflater().inflate(R.layout.activity_settings, null);
+            view = getLayoutInflater().inflate(R.layout.customlistlayout, null);
             ImageView imageView = (ImageView)view.findViewById(R.id.lockImage);
             TextView logName = (TextView)view.findViewById(R.id.logName);
             TextView timeLog = (TextView)view.findViewById(R.id.time_log);

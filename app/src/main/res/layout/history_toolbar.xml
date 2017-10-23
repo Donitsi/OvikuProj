@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back_button"
-        android:id="@+id/back_button_in_settings"
+        android:id="@+id/back_button_in_history"
         android:clickable="true"/>
 
 
@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="History"
         android:layout_gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="30dp"/>
