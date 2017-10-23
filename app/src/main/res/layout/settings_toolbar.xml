@@ -6,17 +6,21 @@
 
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:src="@drawable/logo"/>
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_settings"
-        android:layout_gravity="right"
-        android:layout_marginRight="5dp"
-        android:clickable="true"
-        android:id="@+id/settings"
-        android:title="Settings"/>
+        android:src="@drawable/ic_back_button"
+        android:id="@+id/back_button"
+        android:clickable="true"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"/>
+
+
 </android.support.v7.widget.Toolbar>
