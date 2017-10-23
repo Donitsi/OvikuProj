@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 public class Settings extends AppCompatActivity {
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,9 +18,9 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
 
-        ImageView imageView = (ImageView)findViewById(R.id.back_button);
+        ImageView backButton = (ImageView)findViewById(R.id.back_button);
 
-        imageView.setOnClickListener(new View.OnClickListener(){
+        backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent homeIntent = new Intent(Settings.this, MainPage.class);
@@ -27,7 +30,7 @@ public class Settings extends AppCompatActivity {
         });
 
 
-        ListView listView = (ListView)findViewById(R.id.log_list);
 
     }
+
 }

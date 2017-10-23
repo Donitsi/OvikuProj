@@ -19,7 +19,8 @@
         <activity android:name=".CreateAccountPage" />
         <activity android:name=".SignInPage" />
         <activity android:name=".MainPage" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
+        <activity android:name=".HistoryPage"></activity>
     </application>
 
 </manifest>

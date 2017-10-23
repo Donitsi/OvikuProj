@@ -1,5 +1,6 @@
 package com.example.doni.oviku_proj;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -22,6 +23,7 @@ public class MainPage extends AppCompatActivity {
 
 
         ImageView imageview = (ImageView)findViewById(R.id.vLock);
+        ImageView settingsButton = (ImageView) findViewById(R.id.settings_button);
 
         imageview.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -35,6 +37,15 @@ public class MainPage extends AppCompatActivity {
                 SecureDoor();
                 return true;
             }
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener(){
+           @Override
+            public void onClick(View v){
+               Intent homeIntent = new Intent(MainPage.this, Settings.class);
+               startActivity(homeIntent);
+               finish();
+           }
         });
 
 
@@ -70,11 +81,11 @@ public class MainPage extends AppCompatActivity {
 
         if(firstImageShown){
 
-            imageview.setImageResource(R.drawable.lock_closed);
+            imageview.setImageResource(R.drawable.close_lock);
             firstImageShown = false;
         }
         else{
-            imageview.setImageResource(R.drawable.lock_open);
+            imageview.setImageResource(R.drawable.open_lock);
             firstImageShown = true;
         }
     }
@@ -82,8 +93,7 @@ public class MainPage extends AppCompatActivity {
     public void SecureDoor(){
 
         ImageView imageview = (ImageView)findViewById(R.id.vLock);
-        imageview.setImageResource(R.drawable.lock_secured);
+        imageview.setImageResource(R.drawable.secure_lock);
         firstImageShown = true;
     }
-
 }
