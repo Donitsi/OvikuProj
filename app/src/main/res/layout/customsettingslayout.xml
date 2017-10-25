@@ -7,22 +7,22 @@
 
 
     <TextView
-        android:id="@+id/logName"
+        android:id="@+id/holder1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:layout_marginLeft="30sp"
-        android:text="TextView"
+        android:text="Name"
         android:textSize="25sp"/>
 
     <TextView
-        android:id="@+id/time_log"
+        android:id="@+id/holder2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
-        android:layout_marginLeft="50sp"
-        android:text="Time"
+        android:layout_marginLeft="70sp"
+        android:text="Front door"
 
-        android:textSize="25sp" />
+        android:textSize="17sp" />
 
 </LinearLayout>

@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 public class Settings extends AppCompatActivity {
 
-    int[] IMAGES = {R.drawable.ic_lock_open, R.drawable.ic_lock_close, R.drawable.ic_lock_secure, R.drawable.ic_lock_close};
+    //int[] IMAGES = {R.drawable.ic_lock_open, R.drawable.ic_lock_close, R.drawable.ic_lock_secure, R.drawable.ic_lock_close};
 
-    String[] NAMES = {"Liisa", "Heikki", "Tuomas", "Maria"};
+    String[] HOLDER1 = {"Name", "Lock info", "Color theme", "Remove lock"};
 
-    String[] TIME = {"18:42", "20:22", "21:33", "22:24"};
+    String[] HOLDER2 = {"Front door", " ", "Grey", " "};
 
 
 
@@ -50,7 +50,7 @@ public class Settings extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return IMAGES.length;
+            return HOLDER1.length;
         }
 
         @Override
@@ -66,14 +66,14 @@ public class Settings extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup parent) {
 
-            view = getLayoutInflater().inflate(R.layout.customlistlayout, null);
-            ImageView imageView = (ImageView) view.findViewById(R.id.lockImage);
-            TextView logName = (TextView) view.findViewById(R.id.logName);
-            TextView timeLog = (TextView) view.findViewById(R.id.time_log);
+            view = getLayoutInflater().inflate(R.layout.customsettingslayout, null);
+            //ImageView imageView = (ImageView) view.findViewById(R.id.lockImage);
+            TextView logName = (TextView) view.findViewById(R.id.holder1);
+            TextView timeLog = (TextView) view.findViewById(R.id.holder2);
 
-            imageView.setImageResource(IMAGES[i]);
-            logName.setText(NAMES[i]);
-            timeLog.setText(TIME[i]);
+            //imageView.setImageResource(IMAGES[i]);
+            logName.setText(HOLDER1[i]);
+            timeLog.setText(HOLDER2[i]);
 
 
             return view;
