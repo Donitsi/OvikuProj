@@ -7,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/lockImage"
+        android:id="@+id/vImage"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginLeft="20sp"
@@ -15,7 +15,7 @@
         android:src="@drawable/secure_lock"/>
 
     <TextView
-        android:id="@+id/logName"
+        android:id="@+id/vHolder1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -24,7 +24,7 @@
         android:textSize="25sp"/>
 
     <TextView
-        android:id="@+id/time_log"
+        android:id="@+id/vHolder2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"

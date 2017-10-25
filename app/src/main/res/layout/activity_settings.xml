@@ -9,7 +9,7 @@
     android:background="@drawable/background">
 
 
-    <include layout="@layout/settings_toolbar"
+    <include layout="@layout/toolbartext"
         android:id="@+id/customToolbarSettings"
         />
 

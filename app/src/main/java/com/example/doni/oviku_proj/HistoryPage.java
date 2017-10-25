@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class HistoryPage extends AppCompatActivity {
 
-    int[] IMAGES = {R.drawable.ic_lock_open, R.drawable.ic_lock_close, R.drawable.ic_lock_secure, R.drawable.ic_lock_close};
+    int[] IMAGES = {R.drawable.open_lock, R.drawable.close_lock, R.drawable.secure_lock, R.drawable.open_lock};
 
     String[] NAMES = {"Liisa", "Heikki", "Tuomas", "Maria"};
 
@@ -25,12 +25,15 @@ public class HistoryPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_page);
 
+        TextView toolbarText = (TextView)findViewById(R.id.toolbarText);
+        toolbarText.setText("History");
+
         ListView listView = (ListView)findViewById(R.id.history_list);
         CustomAdapter customAdapter = new CustomAdapter();
 
         listView.setAdapter(customAdapter);
 
-        ImageView backButton = (ImageView)findViewById(R.id.back_button_in_history);
+        ImageView backButton = (ImageView)findViewById(R.id.back_button);
 
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -64,9 +67,9 @@ public class HistoryPage extends AppCompatActivity {
         public View getView(int i, View view, ViewGroup parent) {
 
             view = getLayoutInflater().inflate(R.layout.customlistlayout, null);
-            ImageView imageView = (ImageView)view.findViewById(R.id.lockImage);
-            TextView logName = (TextView)view.findViewById(R.id.logName);
-            TextView timeLog = (TextView)view.findViewById(R.id.time_log);
+            ImageView imageView = (ImageView)view.findViewById(R.id.vImage);
+            TextView logName = (TextView)view.findViewById(R.id.vHolder1);
+            TextView timeLog = (TextView)view.findViewById(R.id.vHolder2);
 
             imageView.setImageResource(IMAGES[i]);
             logName.setText(NAMES[i]);

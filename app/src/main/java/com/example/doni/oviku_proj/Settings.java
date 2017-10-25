@@ -25,13 +25,14 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-
+        TextView toolbarText = (TextView)findViewById(R.id.toolbarText);
+        toolbarText.setText("Settings");
         ListView listView = (ListView)findViewById(R.id.settings_list);
         CustomAdapter customAdapter = new CustomAdapter();
 
         listView.setAdapter(customAdapter);
 
-        ImageView backButton = (ImageView)findViewById(R.id.back_button_in_settings);
+        ImageView backButton = (ImageView)findViewById(R.id.back_button);
 
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override

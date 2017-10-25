@@ -10,7 +10,7 @@
 
 
 
-    <include layout="@layout/history_toolbar"
+    <include layout="@layout/toolbartext"
         android:id="@+id/customToolbarHistory"
         />
 
