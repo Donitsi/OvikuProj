@@ -20,7 +20,7 @@ public class MoreFragment extends Fragment{
 
     int[] IMAGES = {R.drawable.ic_sign_in, R.drawable.ic_add_virtual_key, R.drawable.ic_add_new_key};
 
-    String[] TEXT = {"Sign in", "Add virtual key", "Add new lock"};
+    String[] TEXT = {"Sign in", "Add virtual key", "Add new lock", "My locks"};
 
     String[] TIME ={" ", " ", " ", " "};
 
