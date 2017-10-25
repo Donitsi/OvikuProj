@@ -10,7 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.roughike.bottombar.BottomBar;
+
 public class MainPage extends AppCompatActivity {
+
+    BottomBar mBottombar;
 
 
     private boolean firstImageShown = true;
