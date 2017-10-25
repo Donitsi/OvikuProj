@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public class MoreFragment extends Fragment{
 
-    int[] IMAGES = {R.drawable.ic_sign_in, R.drawable.ic_add_virtual_key, R.drawable.ic_add_new_key};
+    int[] IMAGES = {R.drawable.ic_sign_in, R.drawable.ic_add_virtual_key, R.drawable.ic_add_new_key, R.drawable.ic_lock};
 
     String[] TEXT = {"Sign in", "Add virtual key", "Add new lock", "My locks"};
 
@@ -45,6 +45,7 @@ public class MoreFragment extends Fragment{
                 startActivity(homeIntent);
             }
         });
+
 
         return v;
     }

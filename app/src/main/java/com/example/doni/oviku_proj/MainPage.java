@@ -1,11 +1,8 @@
 package com.example.doni.oviku_proj;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -15,7 +12,7 @@ public class MainPage extends AppCompatActivity {
     BottomBar bottomBar;
 
 
-    private boolean firstImageShown = true;
+    //private boolean firstImageShown = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +26,14 @@ public class MainPage extends AppCompatActivity {
             public void onMenuTabSelected(@IdRes int menuItemId) {
                 if(menuItemId == R.id.action_more){
                     MoreFragment f = new MoreFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_page, f).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, f).commit();
+                }
+                else if(menuItemId == R.id.action_keys){
+                    HomePageFragment f = new HomePageFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, f).commit();
+                }
+                else if(menuItemId == R.id.action_history){
+
                 }
             }
 
@@ -39,9 +43,11 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
+/*
+        ImageView settingsButton = (ImageView) findViewById(R.id.settings_button);
 
         ImageView imageview = (ImageView)findViewById(R.id.vLock);
-        ImageView settingsButton = (ImageView) findViewById(R.id.settings_button);
+
 
         imageview.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -64,7 +70,7 @@ public class MainPage extends AppCompatActivity {
                startActivity(homeIntent);
                finish();
            }
-        });
+        });*/
 
 
 
@@ -97,7 +103,7 @@ public class MainPage extends AppCompatActivity {
 
     }
 
-    public void OpenAndCloseLockDoor(){
+    /*public void OpenAndCloseLockDoor(){
 
         ImageView imageview = (ImageView)findViewById(R.id.vLock);
 
@@ -117,5 +123,5 @@ public class MainPage extends AppCompatActivity {
         ImageView imageview = (ImageView)findViewById(R.id.vLock);
         imageview.setImageResource(R.drawable.secure_lock);
         firstImageShown = true;
-    }
+    }*/
 }

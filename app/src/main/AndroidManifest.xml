@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePage"
+            android:name=".WelcomePage"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CreateAccountPage"
@@ -35,7 +35,8 @@
         <activity
             android:name=".HistoryPage"
             android:screenOrientation="portrait" />
-        <activity android:name=".MorePage"></activity>
+        <activity android:name=".MorePage" />
+        <activity android:name=".HomePage"></activity>
     </application>
 
 </manifest>
