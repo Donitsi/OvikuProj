@@ -1,18 +1,11 @@
 package com.example.doni.oviku_proj;
 
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 public class MorePage extends AppCompatActivity {
 
 
-    int[] IMAGES = {R.drawable.ic_sign_in, R.drawable.ic_add_virtual_key, R.drawable.ic_add_new_key};
+/*    int[] IMAGES = {R.drawable.ic_sign_in, R.drawable.ic_add_virtual_key, R.drawable.ic_add_new_key};
 
     String[] TEXT = {"Sign in", "Add virtual key", "Add new lock"};
 
@@ -62,5 +55,5 @@ public class MorePage extends AppCompatActivity {
 
             return view;
         }
-    }
+    }*/
 }

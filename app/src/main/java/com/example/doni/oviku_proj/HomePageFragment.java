@@ -58,43 +58,6 @@ public class HomePageFragment extends Fragment {
                 return true;
             }
         });
-
-/*        final ImageView imageview = (ImageView)v.findViewById(R.id.vLock);
-
-
-        ImageView backButton = (ImageView) v.findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent homeIntent = new Intent(getActivity(), MainPage.class);
-                startActivity(homeIntent);
-            }
-        });
-
-        ImageView lockImage = (ImageView)v.findViewById(R.id.vLock);
-        lockImage.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(firstImageShown){
-
-                    imageview.setImageResource(R.drawable.close_lock);
-                    firstImageShown = false;
-                }
-                else{
-                    imageview.setImageResource(R.drawable.open_lock);
-                    firstImageShown = true;
-                }
-            }
-        });
-
-        lockImage.setOnLongClickListener(new View.OnLongClickListener(){
-            public boolean onLongClick(View view){
-                imageview.setImageResource(R.drawable.secure_lock);
-                firstImageShown = true;
-                return true;
-            }
-        });*/
-
         return v;
     }
 

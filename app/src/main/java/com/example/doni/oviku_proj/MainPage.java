@@ -11,9 +11,6 @@ public class MainPage extends AppCompatActivity {
 
     BottomBar bottomBar;
 
-
-    //private boolean firstImageShown = true;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,16 +21,21 @@ public class MainPage extends AppCompatActivity {
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
-                if(menuItemId == R.id.action_more){
-                    MoreFragment f = new MoreFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, f).commit();
-                }
-                else if(menuItemId == R.id.action_keys){
+                if(menuItemId == R.id.action_keys){
                     HomePageFragment f = new HomePageFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, f).commit();
                 }
+                else if(menuItemId == R.id.action_access){
+                    AccessPageFragment f = new AccessPageFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,f).commit();
+                }
+
                 else if(menuItemId == R.id.action_history){
 
+                }
+                else if(menuItemId == R.id.action_more){
+                    MoreFragment f = new MoreFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, f).commit();
                 }
             }
 
@@ -42,86 +44,5 @@ public class MainPage extends AppCompatActivity {
 
             }
         });
-
-/*
-        ImageView settingsButton = (ImageView) findViewById(R.id.settings_button);
-
-        ImageView imageview = (ImageView)findViewById(R.id.vLock);
-
-
-        imageview.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                OpenAndCloseLockDoor();
-            }
-        });
-
-        imageview.setOnLongClickListener(new View.OnLongClickListener(){
-            public boolean onLongClick(View view){
-                SecureDoor();
-                return true;
-            }
-        });
-
-        settingsButton.setOnClickListener(new View.OnClickListener(){
-           @Override
-            public void onClick(View v){
-               Intent homeIntent = new Intent(MainPage.this, Settings.class);
-               startActivity(homeIntent);
-               finish();
-           }
-        });*/
-
-
-
-
-/*        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item){
-
-                switch (item.getItemId()){
-                    case R.id.action_keys:
-                        Toast.makeText(MainPage.this, "Action Keys clicked!", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.action_access:
-                        Toast.makeText(MainPage.this, "Action Access clicked!", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.action_history:
-                        Intent homeIntent = new Intent(MainPage.this, HistoryPage.class);
-                        startActivity(homeIntent);
-                        finish();
-                        break;
-                    case R.id.action_more:
-                        Toast.makeText(MainPage.this, "Action More clicked!", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-
-                return true;
-            }
-        });*/
-
     }
-
-    /*public void OpenAndCloseLockDoor(){
-
-        ImageView imageview = (ImageView)findViewById(R.id.vLock);
-
-        if(firstImageShown){
-
-            imageview.setImageResource(R.drawable.close_lock);
-            firstImageShown = false;
-        }
-        else{
-            imageview.setImageResource(R.drawable.open_lock);
-            firstImageShown = true;
-        }
-    }
-
-    public void SecureDoor(){
-
-        ImageView imageview = (ImageView)findViewById(R.id.vLock);
-        imageview.setImageResource(R.drawable.secure_lock);
-        firstImageShown = true;
-    }*/
 }

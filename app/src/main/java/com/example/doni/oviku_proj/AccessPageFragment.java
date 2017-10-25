@@ -2,7 +2,9 @@ package com.example.doni.oviku_proj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -10,41 +12,39 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class Settings extends AppCompatActivity {
+/**
+ * Created by Doni on 10/25/2017.
+ */
 
-    //int[] IMAGES = {R.drawable.ic_lock_open, R.drawable.ic_lock_close, R.drawable.ic_lock_secure, R.drawable.ic_lock_close};
+public class AccessPageFragment extends Fragment {
 
-    String[] HOLDER1 = {"Name", "Lock info", "Color theme", "Remove lock"};
+    String[] HOLDER1 = {"Heikki", "Emilia", "Jukka", "Maria"};
 
-    String[] HOLDER2 = {"Front door", " ", "Grey", " "};
+    String[] HOLDER2 = {"owner", "owner", "guest", "guest"};
 
-
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+        View v = inflater.inflate(R.layout.access_page, container, false);
 
-        TextView toolbarText = (TextView)findViewById(R.id.toolbarText);
-        toolbarText.setText("Settings");
-        ListView listView = (ListView)findViewById(R.id.settings_list);
+        ImageView backButton = (ImageView)v.findViewById(R.id.back_button);
+
+        TextView toolbarText = (TextView)v.findViewById(R.id.toolbarText);
+        toolbarText.setText("Access");
+        ListView listView = (ListView)v.findViewById(R.id.access_list);
         CustomAdapter customAdapter = new CustomAdapter();
 
         listView.setAdapter(customAdapter);
 
-        ImageView backButton = (ImageView)findViewById(R.id.back_button);
-
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent homeIntent = new Intent(Settings.this, MainPage.class);
+                Intent homeIntent = new Intent(getActivity(), MainPage.class);
                 startActivity(homeIntent);
-                finish();
             }
         });
 
-
-
+        return v;
     }
 
     class CustomAdapter extends BaseAdapter {
@@ -67,7 +67,7 @@ public class Settings extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup parent) {
 
-            view = getLayoutInflater().inflate(R.layout.customsettingslayout, null);
+            view = getActivity().getLayoutInflater().inflate(R.layout.customsettingslayout, null);
             //ImageView imageView = (ImageView) view.findViewById(R.id.lockImage);
             TextView holder1 = (TextView) view.findViewById(R.id.holder1);
             TextView holder2 = (TextView) view.findViewById(R.id.holder2);
