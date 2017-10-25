@@ -2,19 +2,17 @@ package com.example.doni.oviku_proj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabClickListener;
 
 public class MainPage extends AppCompatActivity {
 
-    BottomBar mBottombar;
+    BottomBar bottomBar;
 
 
     private boolean firstImageShown = true;
@@ -24,6 +22,22 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_page);
+
+        bottomBar = BottomBar.attach(this,savedInstanceState);
+        bottomBar.setItemsFromMenu(R.menu.bottom_navigation_main, new OnMenuTabClickListener() {
+            @Override
+            public void onMenuTabSelected(@IdRes int menuItemId) {
+                if(menuItemId == R.id.action_more){
+                    MoreFragment f = new MoreFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_page, f).commit();
+                }
+            }
+
+            @Override
+            public void onMenuTabReSelected(@IdRes int menuItemId) {
+
+            }
+        });
 
 
         ImageView imageview = (ImageView)findViewById(R.id.vLock);
@@ -53,7 +67,9 @@ public class MainPage extends AppCompatActivity {
         });
 
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
+
+
+/*        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
@@ -77,7 +93,7 @@ public class MainPage extends AppCompatActivity {
 
                 return true;
             }
-        });
+        });*/
 
     }
 

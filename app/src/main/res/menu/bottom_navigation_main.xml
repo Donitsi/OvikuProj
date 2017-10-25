@@ -7,7 +7,7 @@
         android:id="@+id/action_keys"
         android:enabled="true"
         android:icon="@drawable/ic_keys"
-        android:title="Keys"
+        android:title="Home"
         app:showAsAction="ifRoom" />
 
     <item
