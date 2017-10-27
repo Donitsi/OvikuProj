@@ -9,4 +9,12 @@
     <string name="next_button">Next</string>
     <string name="log_in">Log in</string>
     <string name="settings">Settings</string>
+    <string name="placeholder1">holder1</string>
+    <string name="placeholder2">holder2</string>
+    <string-array name="category_more">
+        <item name ="sign_in">Sign In</item>
+        <item name="add_virtual_key">Add Virtual Key</item>
+        <item name="add_new_lock">Add New Lock</item>
+        <item name="delete_key">Delete Key</item>
+    </string-array>
 </resources>

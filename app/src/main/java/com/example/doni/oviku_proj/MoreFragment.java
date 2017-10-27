@@ -1,12 +1,14 @@
 package com.example.doni.oviku_proj;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -46,9 +48,34 @@ public class MoreFragment extends Fragment{
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Resources res = getResources();
+                String [] category_more = res.getStringArray(R.array.category_more);
+                String category = category_more[position];
+                if(category.equals("Sign In")) {
+                    // Open Sign in page
+                    Intent homeIntent = new Intent(getActivity(), SignInPage.class);
+                    startActivity(homeIntent);
+                }
+                else if(category == "Add virtual key"){
+                    //Open adding virtual key
+                }
+                else if(category == "Add new lock"){
+                    // Open Add new lock page
+                }
+
+                else if(category == "My locks"){
+                    // Open My locks page
+                }
+            }
+        });
 
         return v;
     }
+
+
 
     class CustomAdapter extends BaseAdapter {
 

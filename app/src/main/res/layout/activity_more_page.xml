@@ -5,8 +5,8 @@
     android:id="@+id/activity_more_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.doni.oviku_proj.HistoryPage"
-    android:background="@drawable/background">
+    tools:context="com.example.doni.oviku_proj.MoreFragment"
+    android:background="@drawable/background_dark">
 
     <RelativeLayout
         android:layout_width="wrap_content"

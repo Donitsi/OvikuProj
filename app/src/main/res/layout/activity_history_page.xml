@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.doni.oviku_proj.HistoryPage"
-    android:background="@drawable/background">
+    android:background="@drawable/background_dark">
 
 
 
@@ -21,7 +21,7 @@
         android:layout_below="@+id/customToolbarHistory"/>
 
 
-    <android.support.design.widget.BottomNavigationView
+<!--    <android.support.design.widget.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
@@ -29,6 +29,6 @@
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
-        app:menu="@menu/bottom_navigation_main"/>
+        app:menu="@menu/bottom_navigation_main"/>-->
 
 </RelativeLayout>
