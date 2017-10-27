@@ -31,7 +31,8 @@ public class MainPage extends AppCompatActivity {
                 }
 
                 else if(menuItemId == R.id.action_history){
-
+                    HistoryPageFragment f = new HistoryPageFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, f).commit();
                 }
                 else if(menuItemId == R.id.action_more){
                     MoreFragment f = new MoreFragment();

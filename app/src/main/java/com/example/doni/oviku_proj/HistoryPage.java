@@ -1,17 +1,9 @@
 package com.example.doni.oviku_proj;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 public class HistoryPage extends AppCompatActivity {
-
+/*
     int[] IMAGES = {R.drawable.open_lock, R.drawable.close_lock, R.drawable.secure_lock, R.drawable.open_lock};
 
     String[] NAMES = {"Liisa", "Heikki", "Tuomas", "Maria"};
@@ -78,5 +70,5 @@ public class HistoryPage extends AppCompatActivity {
 
             return view;
         }
-    }
+    }*/
 }
