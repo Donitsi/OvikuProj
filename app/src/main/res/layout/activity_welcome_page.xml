@@ -63,6 +63,7 @@
         android:layout_below="@+id/set_up_lock"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:onClick="CreateAccount"/>
+        android:onClick="CreateAccount"
+        android:textColor="@color/White"/>
 
 </RelativeLayout>

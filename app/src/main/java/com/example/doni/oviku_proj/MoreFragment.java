@@ -54,20 +54,22 @@ public class MoreFragment extends Fragment{
                 Resources res = getResources();
                 String [] category_more = res.getStringArray(R.array.category_more);
                 String category = category_more[position];
-                if(category.equals("Sign In")) {
+                if(category.equals("Sign in")) {
                     // Open Sign in page
                     Intent homeIntent = new Intent(getActivity(), SignInPage.class);
                     startActivity(homeIntent);
                 }
-                else if(category == "Add virtual key"){
+                else if(category.equals("Add virtual key")){
                     //Open adding virtual key
                 }
-                else if(category == "Add new lock"){
+                else if(category.equals("Add new lock")){
                     // Open Add new lock page
                 }
 
-                else if(category == "My locks"){
+                else if(category.equals("My locks")){
                     // Open My locks page
+                    MyLocksFragment f = new MyLocksFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.main_frame, f).commit();
                 }
             }
         });

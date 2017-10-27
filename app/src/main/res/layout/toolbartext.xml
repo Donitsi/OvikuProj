@@ -20,7 +20,7 @@
         android:text="Toolbar Text"
         android:id="@+id/toolbarText"
         android:layout_gravity="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/White"
         android:textSize="30dp"/>
 
 

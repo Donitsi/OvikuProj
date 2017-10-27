@@ -12,9 +12,9 @@
     <string name="placeholder1">holder1</string>
     <string name="placeholder2">holder2</string>
     <string-array name="category_more">
-        <item name ="sign_in">Sign In</item>
-        <item name="add_virtual_key">Add Virtual Key</item>
-        <item name="add_new_lock">Add New Lock</item>
-        <item name="delete_key">Delete Key</item>
+        <item name ="sign_in">Sign in</item>
+        <item name="add_virtual_key">Add virtual key</item>
+        <item name="add_new_lock">Add new lock</item>
+        <item name="delete_key">My locks</item>
     </string-array>
 </resources>
