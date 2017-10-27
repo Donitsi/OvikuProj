@@ -35,7 +35,6 @@
         <activity
             android:name=".HistoryPage"
             android:screenOrientation="portrait" />
-        <activity android:name=".MorePage" />
         <activity android:name=".HomePage"></activity>
     </application>
 
