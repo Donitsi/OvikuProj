@@ -17,6 +17,5 @@ public class SignInPage extends Activity {
     public void LogIn(View view) {
         Intent homeIntent = new Intent(SignInPage.this, MainPage.class);
         startActivity(homeIntent);
-        finish();
     }
 }

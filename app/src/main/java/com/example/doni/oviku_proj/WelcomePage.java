@@ -17,12 +17,10 @@ public class WelcomePage extends Activity {
     public void CreateAccount(View view) {
         Intent homeIntent = new Intent(WelcomePage.this, CreateAccountPage.class);
         startActivity(homeIntent);
-        finish();
     }
 
     public void SignIn(View view) {
         Intent homeIntent = new Intent(WelcomePage.this, SignInPage.class);
         startActivity(homeIntent);
-        finish();
     }
 }

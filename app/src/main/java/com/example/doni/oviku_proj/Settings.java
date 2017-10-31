@@ -39,7 +39,6 @@ public class Settings extends AppCompatActivity {
             public void onClick(View v){
                 Intent homeIntent = new Intent(Settings.this, MainPage.class);
                 startActivity(homeIntent);
-                finish();
             }
         });
 
