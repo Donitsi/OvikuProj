@@ -41,7 +41,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/logo"
         android:layout_marginTop="40dp"
-        android:onClick="SignIn"/>
+        android:onClick="SignIn"
+        style="@style/OvikuButton"/>
 
 
     <Button
@@ -51,7 +52,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/sign_in"
         android:text="@string/set_up_lock"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="10dp"
+        style="@style/OvikuButton"/>
 
 
     <TextView

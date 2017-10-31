@@ -49,6 +49,7 @@
         android:layout_below="@+id/password"
         android:text="@string/next_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        style="@style/OvikuButton"/>
 
 </RelativeLayout>
