@@ -11,10 +11,16 @@
     <string name="settings">Settings</string>
     <string name="placeholder1">holder1</string>
     <string name="placeholder2">holder2</string>
+    <string name="remove_lock">Remove lock</string>
     <string-array name="category_more">
         <item name ="sign_in">Sign in</item>
         <item name="add_virtual_key">Add virtual key</item>
         <item name="add_new_lock">Add new lock</item>
-        <item name="delete_key">My locks</item>
+        <item name="my_locks">My locks</item>
+    </string-array>
+    <string-array name="category_settings">
+        <item name ="lock_name">Name</item>
+        <item name="lock_info">Lock info</item>
+        <item name="theme_color">Theme</item>
     </string-array>
 </resources>
