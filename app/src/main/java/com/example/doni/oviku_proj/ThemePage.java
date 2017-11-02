@@ -11,24 +11,26 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class Settings extends AppCompatActivity {
+public class ThemePage extends AppCompatActivity {
 
-    //int[] IMAGES = {R.drawable.ic_lock_open, R.drawable.ic_lock_close, R.drawable.ic_lock_secure, R.drawable.ic_lock_close};
-
-    String[] HOLDER1 = {"Name", "Lock info", "Theme"};
-
-    String[] HOLDER2 = {"Front door", " ", "Dark"};
+    private boolean switchTheme = false;    // Dark
 
 
+    String[] HOLDER1 = {"Dark", "Light"};
+
+    int[] IMAGES = {R.drawable.ic_check};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_theme_page);
+
 
         TextView toolbarText = (TextView)findViewById(R.id.toolbarText);
-        toolbarText.setText("Settings");
-        ListView listView = (ListView)findViewById(R.id.settings_list);
+        toolbarText.setText("Theme");
+
+
+        ListView listView = (ListView)findViewById(R.id.theme_list);
         CustomAdapter customAdapter = new CustomAdapter();
 
         listView.setAdapter(customAdapter);
@@ -38,34 +40,30 @@ public class Settings extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent homeIntent = new Intent(Settings.this, MainPage.class);
+                Intent homeIntent = new Intent(ThemePage.this, Settings.class);
                 startActivity(homeIntent);
             }
         });
-
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String category = (String) parent.getItemAtPosition(position);
-                if(position == 2){
-                    //String strName = "Theme";
-                    Intent homeIntent = new Intent(Settings.this, ThemePage.class);
-                    //homeIntent.putExtra("theme_page", strName);
-                    startActivity(homeIntent);
+                if(category.equals("Dark")) {
+                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
+                    imageView.setImageResource(IMAGES[0]);
+                    switchTheme = false;
+
+                }
+                else if(category.equals("Light")){
+                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
+                    imageView.setImageResource(IMAGES[1]);
+                    switchTheme = true;
                 }
             }
         });
     }
-
-    public void RemoveLock(View view) {
-        String strName = "Theme";
-        Intent homeIntent = new Intent(Settings.this, ThemePage.class);
-        homeIntent.putExtra("theme_page", strName);
-        startActivity(homeIntent);
-    }
-
 
     class CustomAdapter extends BaseAdapter {
 
@@ -87,17 +85,24 @@ public class Settings extends AppCompatActivity {
         @Override
         public View getView(int position, View view, ViewGroup parent) {
 
-            view = getLayoutInflater().inflate(R.layout.customsettingslayout, null);
-            //ImageView imageView = (ImageView) view.findViewById(R.id.lockImage);
-            TextView holder1 = (TextView) view.findViewById(R.id.holder1);
-            TextView holder2 = (TextView) view.findViewById(R.id.holder2);
+            view = getLayoutInflater().inflate(R.layout.customthemelayout, null);
+            ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
+            TextView holder1 = (TextView) view.findViewById(R.id.vHolder4);
 
-            //imageView.setImageResource(IMAGES[i]);
             holder1.setText(HOLDER1[position]);
-            holder2.setText(HOLDER2[position]);
+
+            if(switchTheme){
+                imageView.setImageResource(IMAGES[1]);
+                switchTheme = true;
+            }
+            else{
+                imageView.setImageResource(IMAGES[0]);
+                switchTheme = false;
+            }
 
 
             return view;
         }
+
     }
 }

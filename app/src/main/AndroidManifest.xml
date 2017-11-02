@@ -32,7 +32,8 @@
         <activity
             android:name=".Settings"
             android:screenOrientation="portrait" />
-        <activity android:name=".HomePage"></activity>
+        <activity android:name=".HomePage" />
+        <activity android:name=".ThemePage"></activity>
     </application>
 
 </manifest>

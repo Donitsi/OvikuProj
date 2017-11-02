@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/settings_list"
-        android:layout_below="@+id/customToolbarSettings" />
+        android:layout_below="@+id/customToolbarSettings"/>
 
     <Button
         android:layout_width="match_parent"
@@ -28,7 +28,6 @@
         android:onClick="RemoveLock"
         android:text="@string/remove_lock"
         android:layout_marginTop="10sp"/>
-
 
 
 </RelativeLayout>
