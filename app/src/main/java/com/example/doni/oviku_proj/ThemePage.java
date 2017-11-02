@@ -18,7 +18,7 @@ public class ThemePage extends AppCompatActivity {
 
     String[] HOLDER1 = {"Dark", "Light"};
 
-    int[] IMAGES = {R.drawable.ic_check};
+    int[] IMAGES = {R.drawable.ic_check,R.drawable.ic_check};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +49,12 @@ public class ThemePage extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String category = (String) parent.getItemAtPosition(position);
-                if(category.equals("Dark")) {
-                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
-                    imageView.setImageResource(IMAGES[0]);
-                    switchTheme = false;
+                //String category = (String) parent.getItemAtPosition(position);
+                if(position == 0) {
 
                 }
-                else if(category.equals("Light")){
-                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
-                    imageView.setImageResource(IMAGES[1]);
-                    switchTheme = true;
+                else if(position == 1){
+
                 }
             }
         });
@@ -69,7 +64,7 @@ public class ThemePage extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return HOLDER1.length;
+            return 2;
         }
 
         @Override
@@ -90,16 +85,7 @@ public class ThemePage extends AppCompatActivity {
             TextView holder1 = (TextView) view.findViewById(R.id.vHolder4);
 
             holder1.setText(HOLDER1[position]);
-
-            if(switchTheme){
-                imageView.setImageResource(IMAGES[1]);
-                switchTheme = true;
-            }
-            else{
-                imageView.setImageResource(IMAGES[0]);
-                switchTheme = false;
-            }
-
+            imageView.setImageResource(IMAGES[position]);
 
             return view;
         }
