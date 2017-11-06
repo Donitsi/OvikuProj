@@ -13,12 +13,13 @@ import android.widget.TextView;
 
 public class ThemePage extends AppCompatActivity {
 
-    private boolean switchTheme = false;    // Dark
+    private boolean darkVisible = true;    // Dark
+    private boolean lightVisible = false;    // Light
 
 
     String[] HOLDER1 = {"Dark", "Light"};
 
-    int[] IMAGES = {R.drawable.ic_check,R.drawable.ic_check};
+    int[] IMAGES = {R.drawable.ic_check,R.drawable.ic_check };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +52,36 @@ public class ThemePage extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String category = (String) parent.getItemAtPosition(position);
                 if(position == 0) {
+                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
+                    if(darkVisible){
+
+                        imageView.setImageResource(0);
+                        darkVisible = false;
+                    }
+
+                    else if(lightVisible){
+                        imageView.setImageResource(0);
+                        lightVisible = false;
+                    }
+                    else{
+
+                        darkVisible = true;
+                    }
 
                 }
                 else if(position == 1){
+                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
+                    if(lightVisible){
+                        imageView.setImageResource(IMAGES[0]);
+                        lightVisible = false;
+                    }
+                    else if(darkVisible){
+                        imageView.setImageResource(0);
+                        darkVisible = false;
+                    }
+                    else{
+                        lightVisible = true;
+                    }
 
                 }
             }
@@ -85,7 +113,21 @@ public class ThemePage extends AppCompatActivity {
             TextView holder1 = (TextView) view.findViewById(R.id.vHolder4);
 
             holder1.setText(HOLDER1[position]);
-            imageView.setImageResource(IMAGES[position]);
+
+
+            if(darkVisible){
+                // in the beginning - it was dark
+                imageView.setImageResource(IMAGES[position]);
+                imageView.setImageResource(0);
+                darkVisible = false;
+            }
+            else if(lightVisible){
+                imageView.setImageResource(0);
+                lightVisible = false;
+            }
+            else{
+                //
+            }
 
             return view;
         }
