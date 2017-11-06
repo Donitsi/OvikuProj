@@ -7,6 +7,8 @@ import android.view.View;
 
 public class WelcomePage extends Activity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,7 @@ public class WelcomePage extends Activity {
     }
 
     public void SignIn(View view) {
+
         Intent homeIntent = new Intent(WelcomePage.this, SignInPage.class);
         startActivity(homeIntent);
     }

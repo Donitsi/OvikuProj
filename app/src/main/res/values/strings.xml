@@ -4,9 +4,11 @@
     <string name="create_new_account"><u>Create new account</u></string>
     <string name="sign_in">Sign In</string>
     <string name="set_up_lock">Set up your lock</string>
+    <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
-    <string name="next_button">Next</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign up</string>
     <string name="log_in">Log in</string>
     <string name="settings">Settings</string>
     <string name="placeholder1">holder1</string>

@@ -51,38 +51,10 @@ public class ThemePage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String category = (String) parent.getItemAtPosition(position);
-                if(position == 0) {
-                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
-                    if(darkVisible){
-
-                        imageView.setImageResource(0);
-                        darkVisible = false;
-                    }
-
-                    else if(lightVisible){
-                        imageView.setImageResource(0);
-                        lightVisible = false;
-                    }
-                    else{
-
-                        darkVisible = true;
-                    }
-
-                }
-                else if(position == 1){
-                    ImageView imageView = (ImageView) view.findViewById(R.id.vImage2);
-                    if(lightVisible){
-                        imageView.setImageResource(IMAGES[0]);
-                        lightVisible = false;
-                    }
-                    else if(darkVisible){
-                        imageView.setImageResource(0);
-                        darkVisible = false;
-                    }
-                    else{
-                        lightVisible = true;
-                    }
-
+                if (view.findViewById(R.id.vImage2).getVisibility() == View.VISIBLE) {
+                    view.findViewById(R.id.vImage2).setVisibility(View.INVISIBLE);
+                } else {
+                    view.findViewById(R.id.vImage2).setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -113,21 +85,7 @@ public class ThemePage extends AppCompatActivity {
             TextView holder1 = (TextView) view.findViewById(R.id.vHolder4);
 
             holder1.setText(HOLDER1[position]);
-
-
-            if(darkVisible){
-                // in the beginning - it was dark
-                imageView.setImageResource(IMAGES[position]);
-                imageView.setImageResource(0);
-                darkVisible = false;
-            }
-            else if(lightVisible){
-                imageView.setImageResource(0);
-                lightVisible = false;
-            }
-            else{
-                //
-            }
+            //imageView.setImageResource(IMAGES[position]);
 
             return view;
         }
