@@ -21,17 +21,17 @@ public class SignInPage extends Activity {
     public void LogIn(View view) {
 
 
-        EditText logInEmail = (EditText)findViewById(R.id.logInEmail);
-        String strEmail = logInEmail.getText().toString();
+        EditText logInUsername = (EditText)findViewById(R.id.logInUsername);
+        String str = logInUsername.getText().toString();
 
         EditText logInPassword = (EditText)findViewById(R.id.logInPassword);
-        String strPassword = logInPassword.getText().toString();
+        String pass = logInPassword.getText().toString();
 
-        String password = helper.searchPass(strEmail);
+        String password = helper.searchPass(str);
 
-        if(strPassword.equals(password)){
+        if(pass.equals(password)){
             Intent homeIntent = new Intent(SignInPage.this, MainPage.class);
-            homeIntent.putExtra("Email", strEmail);
+            homeIntent.putExtra("Username", str);
             startActivity(homeIntent);
         }
         else{

@@ -23,7 +23,7 @@ public class OvikuDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
 
-    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null auto_increment ,"
+    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null  , "
                                                 + "name text not null , email text not null , username text not null , password text not null);";
 
     public OvikuDatabaseHelper(Context context) {
@@ -47,17 +47,25 @@ public class OvikuDatabaseHelper extends SQLiteOpenHelper {
     public void insertContact(Contact c){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        String query = "select * from contacts";
+        Cursor cursor = db.rawQuery(query, null);
+        int count = cursor.getCount();
+
+
+        values.put(COLUMN_ID, count);
         values.put(COLUMN_NAME, c.getName());
         values.put(COLUMN_EMAIL, c.getEmail());
+        values.put(COLUMN_USERNAME, c.getUsername());
         values.put(COLUMN_PASSWORD, c.getPassword());
 
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
 
-    public String searchPass(String email){
+    public String searchPass(String username){
         db = this.getReadableDatabase();
-        String query = "select email, password from "+TABLE_NAME;
+        String query = "select username, password from "+TABLE_NAME;
         Cursor cursor = db.rawQuery(query, null);
 
         String a, b;
@@ -68,7 +76,7 @@ public class OvikuDatabaseHelper extends SQLiteOpenHelper {
             do{
                 a = cursor.getString(0);
 
-                if(a.equals(email)){
+                if(a.equals(username)){
                     b = cursor.getString(1);
                     break;
                 }

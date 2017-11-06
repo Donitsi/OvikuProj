@@ -3,6 +3,7 @@ package com.example.doni.oviku_proj;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -16,6 +17,11 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_page);
+
+        String name = getIntent().getStringExtra("Username");
+
+        Toast toast = Toast.makeText(MainPage.this, name +" has logged in!", Toast.LENGTH_SHORT);
+        toast.show();
 
         bottomBar = BottomBar.attach(this,savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation_main, new OnMenuTabClickListener() {

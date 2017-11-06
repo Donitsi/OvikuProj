@@ -5,6 +5,7 @@
     <string name="sign_in">Sign In</string>
     <string name="set_up_lock">Set up your lock</string>
     <string name="hint_name">Name</string>
+    <string name="hint_username">Username</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="confirm_password">Confirm Password</string>

@@ -36,8 +36,20 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/vEmail"
+        android:id="@+id/vUsername"
         android:layout_below="@+id/vName"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/hint_username"
+        android:inputType="textWebEmailAddress"
+        android:textColor="@color/White"
+        android:textColorHint="@color/White"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vEmail"
+        android:layout_below="@+id/vUsername"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/hint_email"

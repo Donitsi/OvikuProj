@@ -23,7 +23,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logInEmail"
+        android:id="@+id/logInUsername"
         android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
@@ -35,7 +35,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logInEmail"
+        android:layout_below="@+id/logInUsername"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:id="@+id/logInPassword"

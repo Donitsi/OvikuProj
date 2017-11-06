@@ -20,15 +20,17 @@ public class CreateAccountPage extends AppCompatActivity {
     public void SignUp(View view) {
         EditText name = (EditText)findViewById(R.id.vName);
         EditText email = (EditText)findViewById(R.id.vEmail);
+        EditText username = (EditText)findViewById(R.id.vUsername);
         EditText password1 =(EditText)findViewById(R.id.vPassword);
         EditText password2 = (EditText)findViewById(R.id.vConfirm_password);
 
         String namestr = name.getText().toString();
         String emailstr = email.getText().toString();
+        String usernamestr = username.getText().toString();
         String password1str = password1.getText().toString();
         String password2str = password2.getText().toString();
 
-        if(!password1.equals(password2)){
+        if(!password1str.equals(password2str)){
             Toast pass = Toast.makeText(CreateAccountPage.this, "Password don't match!", Toast.LENGTH_SHORT);
             pass.show();
         }
@@ -38,9 +40,24 @@ public class CreateAccountPage extends AppCompatActivity {
             Contact c = new Contact();
             c.setName(namestr);
             c.setEmail(emailstr);
-            c.setPassword(emailstr);
+            c.setUsername(usernamestr);
+            c.setPassword(password1str);
 
             helper.insertContact(c);
+
+            Toast pass = Toast.makeText(CreateAccountPage.this, "Account created!", Toast.LENGTH_SHORT);
+            pass.show();
+            //String password = helper.searchPass(emailstr);
+
+/*            if(password1str.equals(password)){
+                Intent homeIntent = new Intent(CreateAccountPage.this, MainPage.class);
+                homeIntent.putExtra("Email", emailstr);
+                startActivity(homeIntent);
+            }
+            else{
+                Toast toast = Toast.makeText(CreateAccountPage.this, "Your email or password is incorrect", Toast.LENGTH_SHORT);
+                toast.show();
+            }*/
         }
     }
 }
