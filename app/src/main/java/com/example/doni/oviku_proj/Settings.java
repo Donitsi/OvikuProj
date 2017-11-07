@@ -1,11 +1,13 @@
 package com.example.doni.oviku_proj;
 
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,12 +25,14 @@ public class Settings extends AppCompatActivity {
 
     String[] HOLDER2 = {"Front door", " ", " ", "Dark"};
 
-
+    private Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        resources = getResources();
 
         TextView toolbarText = (TextView)findViewById(R.id.toolbarText);
         toolbarText.setText("Settings");
@@ -52,24 +56,38 @@ public class Settings extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String category = (String) parent.getItemAtPosition(position);
+                //String category = (String) parent.getItemAtPosition(position);
                 if(position == 2){
+
+                    Bitmap bitmapI = BitmapFactory.decodeResource(resources, R.drawable.oviku_logo2); // Set any icon from drawable
                     //String strName = "Theme";
                     Toast.makeText(Settings.this, "Notify me!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     PendingIntent pIntent = PendingIntent.getActivity(Settings.this,0, intent,0);
-                    Notification noti = new Notification.Builder(Settings.this)
+                    //NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.ic_lock, "Open lock", pIntent).build();
+
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(Settings.this);
+
+
+/*                    Notification noti = new Notification.Builder(Settings.this)
                             .setTicker("Ticker Title")
-                            .setContentTitle("Conten tTitle")
-                            .setContentText("Content text sdlmfd")
-                            .setSmallIcon(R.drawable.ic_lock)
-                            .addAction(R.drawable.ic_lock, "Open lock", pIntent)
-                            .addAction(R.drawable.ic_lock, "Close lock", pIntent)
-                            .setContentIntent(pIntent).getNotification();
+                            .setContentTitle("Your lock is nearby!")
+                            .setContentText("What do you want to do?")
+                            .setSmallIcon(R.drawable.oviku_logo1)
+                            .setLargeIcon(bitmapI)
+                            .addAction(R.drawable.ic_lock_open, "Open lock", pIntent)
+                            .addAction(R.drawable.ic_lock_close, "Close lock", pIntent)
+                            .setContentIntent(pIntent)
+                            .build();
+
+
 
                     noti.flags = Notification.FLAG_AUTO_CANCEL;
                     NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-                    nm.notify(0, noti);
+                    nm.notify(0, noti);*/
+
+
+
                 }
                 if(position == 3){
                     //String strName = "Theme";
