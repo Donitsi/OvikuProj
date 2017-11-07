@@ -1,5 +1,6 @@
 package com.example.doni.oviku_proj;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -47,17 +48,18 @@ public class CreateAccountPage extends AppCompatActivity {
 
             Toast pass = Toast.makeText(CreateAccountPage.this, "Account created!", Toast.LENGTH_SHORT);
             pass.show();
-            //String password = helper.searchPass(emailstr);
+            String password = helper.searchPass(emailstr);
 
-/*            if(password1str.equals(password)){
+            if(password1str.equals(password)){
                 Intent homeIntent = new Intent(CreateAccountPage.this, MainPage.class);
-                homeIntent.putExtra("Email", emailstr);
+                homeIntent.putExtra("Username", usernamestr);
                 startActivity(homeIntent);
+                finish();
             }
             else{
                 Toast toast = Toast.makeText(CreateAccountPage.this, "Your email or password is incorrect", Toast.LENGTH_SHORT);
                 toast.show();
-            }*/
+            }
         }
     }
 }
