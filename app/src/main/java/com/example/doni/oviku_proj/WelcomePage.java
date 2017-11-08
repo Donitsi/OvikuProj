@@ -14,6 +14,8 @@ public class WelcomePage extends Activity {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_welcome_page);
+
+
     }
 
     public void CreateAccount(View view) {
@@ -22,7 +24,6 @@ public class WelcomePage extends Activity {
     }
 
     public void SignIn(View view) {
-
         Intent homeIntent = new Intent(WelcomePage.this, SignInPage.class);
         startActivity(homeIntent);
     }

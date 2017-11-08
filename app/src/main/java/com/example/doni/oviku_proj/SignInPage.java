@@ -16,6 +16,22 @@ public class SignInPage extends Activity {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sign_in_page);
+
+
+        if(SaveSharedPreference.getUserName(SignInPage.this).length() == 0)
+        {
+            // call Login Activity
+            Intent intent = new Intent(SignInPage.this, MainPage.class);
+            startActivity(intent);
+        }
+        else
+        {
+            // Stay at the current activity.
+            Intent homeIntent = new Intent(SignInPage.this, MainPage.class);
+            startActivity(homeIntent);
+            finish();
+        }
+
     }
 
     public void LogIn(View view) {
@@ -30,6 +46,9 @@ public class SignInPage extends Activity {
         String password = helper.searchPass(str);
 
         if(pass.equals(password)){
+
+            SaveSharedPreference.setUserName(this, str);
+
             Intent homeIntent = new Intent(SignInPage.this, MainPage.class);
             homeIntent.putExtra("Username", str);
             startActivity(homeIntent);

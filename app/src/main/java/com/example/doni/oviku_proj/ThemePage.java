@@ -51,8 +51,12 @@ public class ThemePage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String category = (String) parent.getItemAtPosition(position);
+
                 if (view.findViewById(R.id.vImage2).getVisibility() == View.VISIBLE) {
                     view.findViewById(R.id.vImage2).setVisibility(View.INVISIBLE);
+                    if(position == 0){
+
+                    }
                 } else {
                     view.findViewById(R.id.vImage2).setVisibility(View.VISIBLE);
                 }
@@ -85,7 +89,7 @@ public class ThemePage extends AppCompatActivity {
             TextView holder1 = (TextView) view.findViewById(R.id.vHolder4);
 
             holder1.setText(HOLDER1[position]);
-            //imageView.setImageResource(IMAGES[position]);
+            imageView.setImageResource(IMAGES[position]);
 
             return view;
         }

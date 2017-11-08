@@ -22,7 +22,7 @@ public class MoreFragment extends Fragment{
 
     int[] IMAGES = {R.drawable.ic_sign_in, R.drawable.ic_add_virtual_key, R.drawable.ic_add_new_key, R.drawable.ic_lock};
 
-    String[] TEXT = {"Sign in", "Add virtual key", "Add new lock", "My locks"};
+    String[] TEXT = {"Log out", "Add virtual key", "Add new lock", "My locks"};
 
     String[] TIME ={" ", " ", " ", " "};
 
@@ -54,7 +54,7 @@ public class MoreFragment extends Fragment{
                 Resources res = getResources();
                 String [] category_more = res.getStringArray(R.array.category_more);
                 String category = category_more[position];
-                if(category.equals("Sign in")) {
+                if(category.equals("Log out")) {
                     // Open Sign in page
                     Intent homeIntent = new Intent(getActivity(), SignInPage.class);
                     startActivity(homeIntent);

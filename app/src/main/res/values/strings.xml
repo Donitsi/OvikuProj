@@ -16,7 +16,7 @@
     <string name="placeholder2">holder2</string>
     <string name="remove_lock">Remove lock</string>
     <string-array name="category_more">
-        <item name="sign_in">Sign in</item>
+        <item name="log_out">Log out</item>
         <item name="add_virtual_key">Add virtual key</item>
         <item name="add_new_lock">Add new lock</item>
         <item name="my_locks">My locks</item>
