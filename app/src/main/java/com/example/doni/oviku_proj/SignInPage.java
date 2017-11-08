@@ -18,7 +18,7 @@ public class SignInPage extends Activity {
         setContentView(R.layout.activity_sign_in_page);
 
 
-        if(SaveSharedPreference.getUserName(SignInPage.this).length() == 0)
+/*        if(SaveSharedPreference.getUserName(SignInPage.this).length() == 0)
         {
             // call Login Activity
             Intent intent = new Intent(SignInPage.this, MainPage.class);
@@ -30,7 +30,7 @@ public class SignInPage extends Activity {
             Intent homeIntent = new Intent(SignInPage.this, MainPage.class);
             startActivity(homeIntent);
             finish();
-        }
+        }*/
 
     }
 

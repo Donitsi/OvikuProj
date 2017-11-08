@@ -1,6 +1,7 @@
 package com.example.doni.oviku_proj;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +26,8 @@ public class MoreFragment extends Fragment{
     String[] TEXT = {"Log out", "Add virtual key", "Add new lock", "My locks"};
 
     String[] TIME ={" ", " ", " ", " "};
+
+
 
     @Nullable
     @Override
@@ -56,6 +59,12 @@ public class MoreFragment extends Fragment{
                 String category = category_more[position];
                 if(category.equals("Log out")) {
                     // Open Sign in page
+
+                    SharedPreferences.Editor editor = SaveSharedPreference.getSharedPreferences(getContext()).edit();
+
+                    editor.clear();
+                    editor.commit();
+
                     Intent homeIntent = new Intent(getActivity(), SignInPage.class);
                     startActivity(homeIntent);
                 }

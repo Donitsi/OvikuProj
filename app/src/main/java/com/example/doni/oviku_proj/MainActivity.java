@@ -20,7 +20,13 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
 
-                if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0)
+
+                // Stay at the current activity.
+                Intent homeIntent = new Intent(MainActivity.this, WelcomePage.class);
+                startActivity(homeIntent);
+                finish();
+
+/*                if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0)
                 {
                     // call Login Activity
                     Intent intent = new Intent(MainActivity.this, MainPage.class);
@@ -32,7 +38,7 @@ public class MainActivity extends Activity {
                     Intent homeIntent = new Intent(MainActivity.this, WelcomePage.class);
                     startActivity(homeIntent);
                     finish();
-                }
+                }*/
             }
         }, SPLASH_TIME_OUT);
 
