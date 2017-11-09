@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static com.example.doni.oviku_proj.R.id.logInUsername;
+
 public class SignInPage extends Activity {
 
     OvikuDatabaseHelper helper = new OvikuDatabaseHelper(this);
@@ -44,28 +46,28 @@ public class SignInPage extends Activity {
             finish();
         }*/
 
-        if(SaveSharedPreference.getUserName(SignInPage.this).equals("demo")){
+/*        if(SaveSharedPreference.getUserName(SignInPage.this).equals("demo")){
             // This goes through when "demo" has signed in for the first time
             Toast.makeText(this, username + " has signed in!", Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(this, username + " has logged out!", Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
     }
 
     public void LogIn(View view) {
 
 
-        EditText logInUsername = (EditText)findViewById(R.id.logInUsername);
-        String str = logInUsername.getText().toString();
+        EditText logInUsernameOrEmail = (EditText)findViewById(logInUsername);
+        String str = logInUsernameOrEmail.getText().toString();
 
         EditText logInPassword = (EditText)findViewById(R.id.logInPassword);
         String pass = logInPassword.getText().toString();
 
-        String password = helper.searchPass(str);
+        String usernameOrEmail = helper.searchPass(str);
 
-        if(pass.equals(password)){
+        if(pass.equals(usernameOrEmail)){
 
             SaveSharedPreference.setUserName(this, str);
 

@@ -27,9 +27,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
         android:ems="10"
-        android:hint="@string/hint_email"
+        android:hint="@string/hint_username_or_email"
         android:inputType="textWebEmailAddress"
-        android:textColor="@color/White"/>
+        android:textColor="@color/White"
+        android:textColorHint="@color/White"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -40,7 +41,8 @@
         android:id="@+id/logInPassword"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:textColor="@color/White"/>
+        android:textColor="@color/White"
+        android:textColorHint="@color/White"/>
 
     <Button
         android:layout_width="wrap_content"

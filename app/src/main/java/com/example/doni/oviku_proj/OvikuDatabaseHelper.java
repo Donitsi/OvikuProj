@@ -63,27 +63,28 @@ public class OvikuDatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public String searchPass(String username){
+    public String searchPass(String usernameOrEmail){
         db = this.getReadableDatabase();
-        String query = "select username, password from "+TABLE_NAME;
+        String query = "select email, username, password from "+TABLE_NAME;
         Cursor cursor = db.rawQuery(query, null);
 
-        String a, b;
-        b = "not found";
+        String a, b ,c;
+        c = "not found";
 
         if(cursor.moveToFirst())
         {
             do{
                 a = cursor.getString(0);
+                b = cursor.getString(1);
 
-                if(a.equals(username)){
-                    b = cursor.getString(1);
+                if(a.equals(usernameOrEmail) || b.equals(usernameOrEmail)){
+                    c = cursor.getString(2);
                     break;
                 }
             }
             while(cursor.moveToNext());
         }
 
-        return b;
+        return c;
     }
 }

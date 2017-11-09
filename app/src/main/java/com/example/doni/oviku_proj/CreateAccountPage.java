@@ -54,7 +54,7 @@ public class CreateAccountPage extends AppCompatActivity {
 
             Toast pass = Toast.makeText(CreateAccountPage.this, "Account created!", Toast.LENGTH_SHORT);
             pass.show();
-            String password = helper.searchPass(emailstr);
+            String password = helper.searchPass(usernamestr);
 
             if(password1str.equals(password)){
                 Intent homeIntent = new Intent(CreateAccountPage.this, MainPage.class);
