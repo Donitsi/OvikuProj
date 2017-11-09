@@ -31,6 +31,7 @@ public class MainPage extends AppCompatActivity {
 
         final String username = SaveSharedPreference.getUserName(getApplicationContext());
 
+
         Toast toast = Toast.makeText(MainPage.this, username +" has logged in!", Toast.LENGTH_SHORT);
         toast.show();
 
@@ -72,7 +73,6 @@ public class MainPage extends AppCompatActivity {
     {
         if(keyCode == KeyEvent.KEYCODE_BACK)
         {
-
             //Toast.makeText(this, SaveSharedPreference.getUserName(getApplicationContext()), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(Intent.ACTION_MAIN);

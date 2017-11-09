@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 public class SaveSharedPreference
 {
     static final String PREF_USER_NAME= "username";
-    //static final String PREF_PASSWORD = "password";
+    static final String PREF_THEME_BACKGROUND = "background_theme";
 
 
     static SharedPreferences getSharedPreferences(Context ctx) {
@@ -25,15 +25,32 @@ public class SaveSharedPreference
         editor.commit();
     }
 
+    public static void setBackgroundTheme(Context context, String background){
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.putString(PREF_THEME_BACKGROUND, background);
+        editor.commit();
+    }
+
     public static String getUserName(Context ctx)
     {
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
     }
 
+    public static String getBackgroundTheme(Context context){
+        return getSharedPreferences(context).getString(PREF_THEME_BACKGROUND,"");
+    }
+
     public static void clearUserName(Context ctx)
     {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
-        editor.clear(); //clear all stored data
+        editor.remove("username");
+        //editor.clear(); //clear all stored data
+        editor.commit();
+    }
+
+    public static void clearBackgroundTheme(Context context){
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.remove("background_theme");
         editor.commit();
     }
 }

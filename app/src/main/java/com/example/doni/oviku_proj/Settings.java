@@ -18,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class Settings extends AppCompatActivity {
 
     private Resources resources;
 
+    //final String backgroundTheme = SaveSharedPreference.getBackgroundTheme(getApplicationContext());
+
     View view;
 
     @Override
@@ -37,8 +40,27 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
 
-        view = this.getWindow().getDecorView();
-        view.setBackgroundResource(R.drawable.background4);
+        if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).length() == 0){
+            view = this.getWindow().getDecorView();
+            view.setBackgroundResource(R.drawable.background4);
+        }
+        else{
+            if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Dark")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background2);
+            }
+            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Light")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background4);
+            }
+            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Blue")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background3);
+            }
+        }
+
+
+
 
         resources = getResources();
 
@@ -124,7 +146,7 @@ public class Settings extends AppCompatActivity {
 
     public void RemoveLock(View v) {
 
-        view.setBackgroundResource(R.drawable.background4);
+        Toast.makeText(this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
     }
 
 
