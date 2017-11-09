@@ -15,6 +15,8 @@
     <string name="placeholder1">holder1</string>
     <string name="placeholder2">holder2</string>
     <string name="remove_lock">Remove lock</string>
+    <string name="save_name">Save</string>
+    <string name="lock_name">Lock name</string>
     <string-array name="category_more">
         <item name="log_out">Log out</item>
         <item name="add_virtual_key">Add virtual key</item>

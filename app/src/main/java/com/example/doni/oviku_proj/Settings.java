@@ -3,18 +3,22 @@ package com.example.doni.oviku_proj;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import static com.example.doni.oviku_proj.SaveSharedPreference.getBackgroundTheme;
+import static com.example.doni.oviku_proj.SaveSharedPreference.getLockName;
 import static com.example.doni.oviku_proj.SaveSharedPreference.getNotificationStatus;
 
 public class Settings extends AppCompatActivity {
@@ -24,6 +28,7 @@ public class Settings extends AppCompatActivity {
 
     String backgroundTheme;
     String notificationStr;
+    String lockName;
 
 
     private Resources resources;
@@ -77,6 +82,13 @@ public class Settings extends AppCompatActivity {
             }
         }
 
+        if(getLockName(getApplicationContext()).length() == 0){
+            lockName = "Front door";
+        }
+        else{
+            lockName = getLockName(getApplicationContext());
+        }
+
 
 
 
@@ -105,6 +117,39 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String category = (String) parent.getItemAtPosition(position);
+
+                if(position == 0){
+                    final AlertDialog.Builder mBuilder = new AlertDialog.Builder(Settings.this);
+                    View mView = getLayoutInflater().inflate(R.layout.dialog_change_lock_name, null);
+                    final EditText editTextChangeName = (EditText)mView.findViewById(R.id.editTextChangeName);
+                    Button saveButton = (Button)mView.findViewById(R.id.save_name);
+
+                    mBuilder.setView(mView);
+                    final AlertDialog dialog = mBuilder.create();
+
+
+
+                    saveButton.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View view){
+                            String str;
+                            str = editTextChangeName.getText().toString();
+
+                            SaveSharedPreference.clearLockName(getApplicationContext());
+                            SaveSharedPreference.setLockName(getApplicationContext(), str);
+                            lockName = SaveSharedPreference.getLockName(getApplicationContext());
+
+                            Toast.makeText(Settings.this, str, Toast.LENGTH_SHORT).show();
+                            refreshData();
+                            dialog.dismiss();
+
+                        }
+                    });
+
+                    dialog.show();
+
+                }
+
                 if(position == 2){
 
                     Intent homeIntent = new Intent(Settings.this, NotificationPage.class);
@@ -167,18 +212,29 @@ public class Settings extends AppCompatActivity {
         });
     }
 
+
+    public void refreshData(){
+        ListView listView = (ListView)findViewById(R.id.settings_list);
+        CustomAdapter customAdapter = new CustomAdapter();
+        listView.setAdapter(customAdapter);
+    }
+
     public void RemoveLock(View v) {
 
         //Toast.makeText(this, getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Background theme: " + backgroundTheme + ", Notification status: " + notificationStr, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,
+                "Background theme: " + backgroundTheme + ", " +
+                "Notification status: " + notificationStr + ", " +
+                "Lock name: " + SaveSharedPreference.getLockName(getApplicationContext()),
+                Toast.LENGTH_SHORT).show();
     }
 
 
     class CustomAdapter extends BaseAdapter {
 
-        String[] HOLDER1 = {"Name", "Lock info","Notification", "Theme"};
+        String[] HOLDER1 = {"Lock name", "Lock info","Notification", "Theme"};
 
-        String[] HOLDER2 = {"Front door", "OVIKU_LOCKSAVBBC5324", notificationStr, backgroundTheme};
+        String[] HOLDER2 = {lockName, "OVIKU_LOCKSAVBBC5324", notificationStr, backgroundTheme};
 
         @Override
         public int getCount() {
