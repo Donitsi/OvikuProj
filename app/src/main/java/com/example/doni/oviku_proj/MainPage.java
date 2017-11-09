@@ -1,8 +1,11 @@
 package com.example.doni.oviku_proj;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -17,10 +20,10 @@ public class MainPage extends AppCompatActivity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_page);
 
-        String name = getIntent().getStringExtra("Username");
+        String username = getIntent().getStringExtra("Username");
 
-/*        Toast toast = Toast.makeText(MainPage.this, name +" has logged in!", Toast.LENGTH_SHORT);
-        toast.show();*/
+        Toast toast = Toast.makeText(MainPage.this, username +" has logged in!", Toast.LENGTH_SHORT);
+        toast.show();
 
         bottomBar = BottomBar.attach(this,savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation_main, new OnMenuTabClickListener() {
@@ -51,7 +54,24 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
+    }
 
 
+    // Controls the back button of the phone**
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+
+            //Toast.makeText(this, SaveSharedPreference.getUserName(getApplicationContext()), Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true;
+        }
+        return false;
     }
 }

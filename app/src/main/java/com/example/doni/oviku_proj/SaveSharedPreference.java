@@ -11,9 +11,8 @@ import android.preference.PreferenceManager;
 public class SaveSharedPreference
 {
     static final String PREF_USER_NAME= "username";
-    static final String PREF_PASSWORD = "password";
+    //static final String PREF_PASSWORD = "password";
 
-    static final String PREF_USER_NAME2 = "username2";
 
     static SharedPreferences getSharedPreferences(Context ctx) {
         return PreferenceManager.getDefaultSharedPreferences(ctx);
@@ -29,5 +28,12 @@ public class SaveSharedPreference
     public static String getUserName(Context ctx)
     {
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
+    }
+
+    public static void clearUserName(Context ctx)
+    {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.clear(); //clear all stored data
+        editor.commit();
     }
 }

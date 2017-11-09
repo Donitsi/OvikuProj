@@ -3,6 +3,7 @@ package com.example.doni.oviku_proj;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,12 +12,18 @@ public class SignInPage extends Activity {
 
     OvikuDatabaseHelper helper = new OvikuDatabaseHelper(this);
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sign_in_page);
 
+
+
+
+        String username = getIntent().getStringExtra("Username");
 
 /*        if(SaveSharedPreference.getUserName(SignInPage.this).length() == 0)
         {
@@ -31,6 +38,14 @@ public class SignInPage extends Activity {
             startActivity(homeIntent);
             finish();
         }*/
+
+        if(SaveSharedPreference.getUserName(SignInPage.this).equals("demo")){
+            // This goes through when "demo" has signed in for the first time
+            Toast.makeText(this, username + " has signed in!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, username + " has logged out!", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -58,5 +73,26 @@ public class SignInPage extends Activity {
             toast.show();
         }
 
+    }
+
+    // Controls the back button of the phone**
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+
+            //Toast.makeText(this, "Test!", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(SignInPage.this, WelcomePage.class);
+            startActivity(intent);
+
+/*            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true*/;
+        }
+        return false;
     }
 }

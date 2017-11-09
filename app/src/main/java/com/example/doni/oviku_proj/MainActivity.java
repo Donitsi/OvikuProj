@@ -16,15 +16,23 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
 
-                // Stay at the current activity.
-                Intent homeIntent = new Intent(MainActivity.this, WelcomePage.class);
-                startActivity(homeIntent);
-                finish();
+
+                if(SaveSharedPreference.getUserName(MainActivity.this).equals("demo")){
+                    // Goes straight to MainPage if the user has logged in earlier
+                }
+                else{
+                    // If the user has logged out then this will go to WelcomePage
+                    Intent homeIntent = new Intent(MainActivity.this, WelcomePage.class);
+                    startActivity(homeIntent);
+                    finish();
+                }
+
 
 /*                if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0)
                 {

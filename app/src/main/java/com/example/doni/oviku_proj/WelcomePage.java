@@ -3,6 +3,7 @@ package com.example.doni.oviku_proj;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 public class WelcomePage extends Activity {
@@ -26,5 +27,23 @@ public class WelcomePage extends Activity {
     public void SignIn(View view) {
         Intent homeIntent = new Intent(WelcomePage.this, SignInPage.class);
         startActivity(homeIntent);
+    }
+
+    // Controls the back button of the phone**
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+
+            //Toast.makeText(this, "Test!", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true;
+        }
+        return false;
     }
 }

@@ -14,6 +14,11 @@
     <color name="grey4">#d8d4ce</color>
 
 
+    <color name="green">#66CD00</color>
+    <color name="orange">#ffa500</color>
+    <color name ="red">#ff0000</color>
+
+
 
     <color name="mint">#c4dcc7</color>
     <color name="mint_2">#8eaa92</color>
