@@ -29,10 +29,16 @@ public class Settings extends AppCompatActivity {
 
     private Resources resources;
 
+    View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+
+        view = this.getWindow().getDecorView();
+        view.setBackgroundResource(R.drawable.frontpage_background_dark);
 
         resources = getResources();
 
@@ -116,11 +122,9 @@ public class Settings extends AppCompatActivity {
         });
     }
 
-    public void RemoveLock(View view) {
-        String strName = "Theme";
-        Intent homeIntent = new Intent(Settings.this, ThemePage.class);
-        homeIntent.putExtra("theme_page", strName);
-        startActivity(homeIntent);
+    public void RemoveLock(View v) {
+
+        view.setBackgroundResource(R.drawable.frontpage_background);
     }
 
 

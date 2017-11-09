@@ -20,7 +20,9 @@ public class MainPage extends AppCompatActivity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_page);
 
-        String username = getIntent().getStringExtra("Username");
+        //String username = getIntent().getStringExtra("Username");
+
+        final String username = SaveSharedPreference.getUserName(getApplicationContext());
 
         Toast toast = Toast.makeText(MainPage.this, username +" has logged in!", Toast.LENGTH_SHORT);
         toast.show();

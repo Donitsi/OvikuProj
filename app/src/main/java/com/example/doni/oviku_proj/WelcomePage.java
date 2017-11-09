@@ -9,6 +9,7 @@ import android.view.View;
 public class WelcomePage extends Activity {
 
 
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,10 @@ public class WelcomePage extends Activity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_welcome_page);
 
+
+        // Setting the background picture
+        view = this.getWindow().getDecorView();
+        view.setBackgroundResource(R.drawable.frontpage_background_dark);
 
     }
 
