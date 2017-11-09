@@ -12,6 +12,7 @@ public class SaveSharedPreference
 {
     static final String PREF_USER_NAME= "username";
     static final String PREF_THEME_BACKGROUND = "background_theme";
+    static final String PREF_NOTIFICATION_STATUS = "notification_status";
 
 
     static SharedPreferences getSharedPreferences(Context ctx) {
@@ -31,6 +32,12 @@ public class SaveSharedPreference
         editor.commit();
     }
 
+    public static void setNotificationStatus(Context context, String notificationStatus){
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.putString(PREF_NOTIFICATION_STATUS, notificationStatus);
+        editor.commit();
+    }
+
     public static String getUserName(Context ctx)
     {
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
@@ -38,6 +45,10 @@ public class SaveSharedPreference
 
     public static String getBackgroundTheme(Context context){
         return getSharedPreferences(context).getString(PREF_THEME_BACKGROUND,"");
+    }
+
+    public static String getNotificationStatus(Context context){
+        return getSharedPreferences(context).getString(PREF_NOTIFICATION_STATUS, "");
     }
 
     public static void clearUserName(Context ctx)
@@ -51,6 +62,11 @@ public class SaveSharedPreference
     public static void clearBackgroundTheme(Context context){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.remove("background_theme");
+        editor.commit();
+    }
+    public static void clearNotificationStatus(Context context){
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.remove("notification_status");
         editor.commit();
     }
 }

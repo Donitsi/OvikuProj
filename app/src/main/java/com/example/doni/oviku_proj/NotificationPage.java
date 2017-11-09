@@ -1,7 +1,14 @@
 package com.example.doni.oviku_proj;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,12 +25,16 @@ public class NotificationPage extends AppCompatActivity {
 
     View view;
 
-    String[] HOLDER1 = {"Never", "While using app", "Always"};
+    String[] HOLDER1 = {"Never", "While using app", "Always", "Notify me now"};
+
+    private Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_page);
+
+        resources = getResources();
 
         if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).length() == 0){
             view = this.getWindow().getDecorView();
@@ -67,15 +78,48 @@ public class NotificationPage extends AppCompatActivity {
                 //String category = (String) parent.getItemAtPosition(position);
 
                 if(position == 0){
-                    Toast.makeText(NotificationPage.this, "Never", Toast.LENGTH_SHORT).show();
+
+                    SaveSharedPreference.clearNotificationStatus(getApplicationContext());
+                    SaveSharedPreference.setNotificationStatus(getApplicationContext(), "Never");
+                    Toast.makeText(NotificationPage.this, SaveSharedPreference.getNotificationStatus(getApplicationContext()), Toast.LENGTH_SHORT).show();
                 }
                 else if(position == 1){
-                    Toast.makeText(NotificationPage.this, "While using app", Toast.LENGTH_SHORT).show();
+
+                    SaveSharedPreference.clearNotificationStatus(getApplicationContext());
+                    SaveSharedPreference.setNotificationStatus(getApplicationContext(), "While using app");
+                    Toast.makeText(NotificationPage.this, SaveSharedPreference.getNotificationStatus(getApplicationContext()), Toast.LENGTH_SHORT).show();
                 }
                 else if(position == 2){
-                    Toast.makeText(NotificationPage.this, "Always", Toast.LENGTH_SHORT).show();
-                }
 
+                    SaveSharedPreference.clearNotificationStatus(getApplicationContext());
+                    SaveSharedPreference.setNotificationStatus(getApplicationContext(), "Always");
+                    Toast.makeText(NotificationPage.this, SaveSharedPreference.getNotificationStatus(getApplicationContext()), Toast.LENGTH_SHORT).show();
+                }
+                else if(position == 3){
+                    String text ="What do you want to do?";
+                    Bitmap bitmapI = BitmapFactory.decodeResource(resources, R.drawable.oviku_logo2); // Set any icon from drawable
+                    //String strName = "Theme";
+                    Intent intent = new Intent(NotificationPage.this, MainPage.class);
+                    PendingIntent pIntent = PendingIntent.getActivity(NotificationPage.this,0, intent,0);
+                    //NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.ic_lock, "Open lock", pIntent).build();
+
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(NotificationPage.this);
+
+                    builder.setSmallIcon(R.drawable.oviku_logo1)
+                            .setContentTitle("You are near your front door!");
+                    builder.setStyle(new NotificationCompat.BigTextStyle(builder));
+
+                    builder.setContentText(text);
+                    builder.setContentIntent(pIntent);
+                    builder.setLargeIcon(bitmapI);
+                    builder.setPriority(Notification.PRIORITY_MAX)
+                            .setWhen(0);
+                    builder.addAction(new NotificationCompat.Action(R.drawable.open_lock, "Open lock", pIntent));
+                    builder.addAction(new NotificationCompat.Action(R.drawable.close_lock, "Close lock", pIntent));
+
+                    Notification notification = builder.build();
+                    NotificationManagerCompat.from(NotificationPage.this).notify(0, notification);
+                }
             }
         });
     }

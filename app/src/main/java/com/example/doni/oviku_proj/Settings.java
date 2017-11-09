@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import static com.example.doni.oviku_proj.SaveSharedPreference.getBackgroundTheme;
+import static com.example.doni.oviku_proj.SaveSharedPreference.getNotificationStatus;
 
 public class Settings extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class Settings extends AppCompatActivity {
 
 
     String backgroundTheme;
+    String notificationStr;
 
 
     private Resources resources;
@@ -57,6 +59,21 @@ public class Settings extends AppCompatActivity {
                 backgroundTheme = getBackgroundTheme(getApplicationContext());
                 view = this.getWindow().getDecorView();
                 view.setBackgroundResource(R.drawable.background3);
+            }
+        }
+
+        if(getNotificationStatus(getApplicationContext()).length() == 0){
+            notificationStr = "While using app";
+        }
+        else{
+            if(getNotificationStatus(getApplicationContext()).equals("Never")){
+                notificationStr = getNotificationStatus(getApplicationContext());
+            }
+            else if(getNotificationStatus(getApplicationContext()).equals("While using app")){
+                notificationStr = getNotificationStatus(getApplicationContext());
+            }
+            else if(getNotificationStatus(getApplicationContext()).equals("Always")){
+                notificationStr = getNotificationStatus(getApplicationContext());
             }
         }
 
@@ -153,7 +170,7 @@ public class Settings extends AppCompatActivity {
     public void RemoveLock(View v) {
 
         //Toast.makeText(this, getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, backgroundTheme, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Background theme: " + backgroundTheme + ", Notification status: " + notificationStr, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -161,7 +178,7 @@ public class Settings extends AppCompatActivity {
 
         String[] HOLDER1 = {"Name", "Lock info","Notification", "Theme"};
 
-        String[] HOLDER2 = {"Front door", " ", " ", backgroundTheme};
+        String[] HOLDER2 = {"Front door", "OVIKU_LOCKSAVBBC5324", notificationStr, backgroundTheme};
 
         @Override
         public int getCount() {
