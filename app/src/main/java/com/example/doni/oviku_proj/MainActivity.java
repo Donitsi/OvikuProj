@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 
         // Setting the background picture
         view = this.getWindow().getDecorView();
-        view.setBackgroundResource(R.drawable.frontpage_background_dark);
+        view.setBackgroundResource(R.drawable.background4);
 
         final String username = SaveSharedPreference.getUserName(getApplicationContext());
 

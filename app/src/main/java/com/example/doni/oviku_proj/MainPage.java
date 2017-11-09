@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
@@ -14,11 +15,17 @@ public class MainPage extends AppCompatActivity {
 
     BottomBar bottomBar;
 
+    View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_page);
+
+        // Setting the background picture
+        view = this.getWindow().getDecorView();
+        view.setBackgroundResource(R.drawable.background4);
 
         //String username = getIntent().getStringExtra("Username");
 

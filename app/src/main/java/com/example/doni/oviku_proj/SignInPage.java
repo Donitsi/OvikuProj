@@ -12,6 +12,8 @@ public class SignInPage extends Activity {
 
     OvikuDatabaseHelper helper = new OvikuDatabaseHelper(this);
 
+    View view;
+
 
 
     @Override
@@ -20,6 +22,9 @@ public class SignInPage extends Activity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sign_in_page);
 
+        // Setting the background picture
+        view = this.getWindow().getDecorView();
+        view.setBackgroundResource(R.drawable.background4);
 
 
 

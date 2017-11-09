@@ -38,7 +38,7 @@ public class Settings extends AppCompatActivity {
 
 
         view = this.getWindow().getDecorView();
-        view.setBackgroundResource(R.drawable.frontpage_background_dark);
+        view.setBackgroundResource(R.drawable.background4);
 
         resources = getResources();
 
@@ -124,7 +124,7 @@ public class Settings extends AppCompatActivity {
 
     public void RemoveLock(View v) {
 
-        view.setBackgroundResource(R.drawable.frontpage_background);
+        view.setBackgroundResource(R.drawable.background4);
     }
 
 
