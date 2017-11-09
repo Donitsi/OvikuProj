@@ -19,9 +19,29 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        // Setting the background picture
         view = this.getWindow().getDecorView();
         view.setBackgroundResource(R.drawable.background4);
+
+/*        if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).length() == 0){
+            view = this.getWindow().getDecorView();
+            view.setBackgroundResource(R.drawable.background4);
+        }
+        else{
+
+            if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Dark")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background2);
+            }
+            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Light")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background4);
+            }
+            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Blue")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background3);
+            }
+        }*/
+
 
         final String username = SaveSharedPreference.getUserName(getApplicationContext());
 

@@ -23,9 +23,24 @@ public class MainPage extends AppCompatActivity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_page);
 
-        // Setting the background picture
-        view = this.getWindow().getDecorView();
-        view.setBackgroundResource(R.drawable.background4);
+        if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).length() == 0){
+            view = this.getWindow().getDecorView();
+            view.setBackgroundResource(R.drawable.background4);
+        }
+        else{
+            if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Dark")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background2);
+            }
+            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Light")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background4);
+            }
+            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Blue")){
+                view = this.getWindow().getDecorView();
+                view.setBackgroundResource(R.drawable.background3);
+            }
+        }
 
         //String username = getIntent().getStringExtra("Username");
 
