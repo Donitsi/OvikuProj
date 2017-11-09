@@ -1,15 +1,9 @@
 package com.example.doni.oviku_proj;
 
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.NotificationCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +14,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.doni.oviku_proj.SaveSharedPreference.getBackgroundTheme;
+
 public class Settings extends AppCompatActivity {
 
     //int[] IMAGES = {R.drawable.ic_lock_open, R.drawable.ic_lock_close, R.drawable.ic_lock_secure, R.drawable.ic_lock_close};
 
-    String[] HOLDER1 = {"Name", "Lock info","Notify me", "Theme"};
 
-    String[] HOLDER2 = {"Front door", " ", " ", "Dark"};
+    String backgroundTheme;
+
 
     private Resources resources;
 
@@ -40,20 +36,25 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
 
-        if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).length() == 0){
+        if(getBackgroundTheme(getApplicationContext()).length() == 0){
+
+            backgroundTheme = "Light";
             view = this.getWindow().getDecorView();
             view.setBackgroundResource(R.drawable.background4);
         }
         else{
-            if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Dark")){
+            if(getBackgroundTheme(getApplicationContext()).equals("Dark")){
+                backgroundTheme = getBackgroundTheme(getApplicationContext());
                 view = this.getWindow().getDecorView();
                 view.setBackgroundResource(R.drawable.background2);
             }
-            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Light")){
+            else if(getBackgroundTheme(getApplicationContext()).equals("Light")){
+                backgroundTheme = getBackgroundTheme(getApplicationContext());
                 view = this.getWindow().getDecorView();
                 view.setBackgroundResource(R.drawable.background4);
             }
-            else if(SaveSharedPreference.getBackgroundTheme(getApplicationContext()).equals("Blue")){
+            else if(getBackgroundTheme(getApplicationContext()).equals("Blue")){
+                backgroundTheme = getBackgroundTheme(getApplicationContext());
                 view = this.getWindow().getDecorView();
                 view.setBackgroundResource(R.drawable.background3);
             }
@@ -88,7 +89,12 @@ public class Settings extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String category = (String) parent.getItemAtPosition(position);
                 if(position == 2){
-                    String text ="What do you want to do?";
+
+                    Intent homeIntent = new Intent(Settings.this, NotificationPage.class);
+                    startActivity(homeIntent);
+
+
+/*                    String text ="What do you want to do?";
                     Bitmap bitmapI = BitmapFactory.decodeResource(resources, R.drawable.oviku_logo2); // Set any icon from drawable
                     //String strName = "Theme";
                     Intent intent = new Intent(Settings.this, MainPage.class);
@@ -110,7 +116,7 @@ public class Settings extends AppCompatActivity {
                     builder.addAction(new NotificationCompat.Action(R.drawable.close_lock, "Close lock", pIntent));
 
                     Notification notification = builder.build();
-                    NotificationManagerCompat.from(Settings.this).notify(0, notification);
+                    NotificationManagerCompat.from(Settings.this).notify(0, notification);*/
 
 
 /*                    Notification noti = new Notification.Builder(Settings.this)
@@ -146,11 +152,16 @@ public class Settings extends AppCompatActivity {
 
     public void RemoveLock(View v) {
 
-        Toast.makeText(this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, backgroundTheme, Toast.LENGTH_SHORT).show();
     }
 
 
     class CustomAdapter extends BaseAdapter {
+
+        String[] HOLDER1 = {"Name", "Lock info","Notification", "Theme"};
+
+        String[] HOLDER2 = {"Front door", " ", " ", backgroundTheme};
 
         @Override
         public int getCount() {
