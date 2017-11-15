@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public class HistoryPageFragment extends Fragment {
 
-    int[] IMAGES = {R.drawable.open_lock2, R.drawable.close_lock2, R.drawable.open_lock2, R.drawable.close_lock2};
+    int[] IMAGES = {R.drawable.oviku_history_green, R.drawable.oviku_history_orange, R.drawable.oviku_history_red, R.drawable.oviku_history_orange};
 
     String[] NAMES = {"Liisa", "Heikki", "Tuomas", "Maria"};
 

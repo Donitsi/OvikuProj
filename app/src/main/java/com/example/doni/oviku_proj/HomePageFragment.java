@@ -46,12 +46,12 @@ public class HomePageFragment extends Fragment {
             public void onClick(View v){
                 if(firstImageShown){
                     ImageView lockImage1 = (ImageView)v.findViewById(R.id.vLock);
-                    lockImage1.setImageResource(R.drawable.close_lock1);
+                    lockImage1.setImageResource(R.drawable.ovikunappula_vaaleaoranssi);
                     firstImageShown = false;
                 }
                 else{
                     ImageView lockImage1 = (ImageView)v.findViewById(R.id.vLock);
-                    lockImage1.setImageResource(R.drawable.open_lock1);
+                    lockImage1.setImageResource(R.drawable.ovikunappula_vaaleavihrea);
                     firstImageShown = true;
                 }
             }
@@ -60,7 +60,7 @@ public class HomePageFragment extends Fragment {
         lockImage.setOnLongClickListener(new View.OnLongClickListener(){
             public boolean onLongClick(View v){
                 ImageView lockImage1 = (ImageView)v.findViewById(R.id.vLock);
-                lockImage1.setImageResource(R.drawable.secure_lock1);
+                lockImage1.setImageResource(R.drawable.ovikunappula_vaaleapunainen);
                 firstImageShown = true;
                 return true;
             }

@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/open_lock1"
+        android:src="@drawable/ovikunappula_vaaleavihrea"
         android:id="@+id/vLock"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="100dp"
