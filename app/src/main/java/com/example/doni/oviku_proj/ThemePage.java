@@ -10,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ThemePage extends Settings {
 
@@ -80,21 +79,21 @@ public class ThemePage extends Settings {
                     SaveSharedPreference.clearBackgroundTheme(getApplicationContext());
                     SaveSharedPreference.setBackgroundTheme(getApplicationContext(),"Dark");
                     SetBackgroundDark(view);
-                    Toast.makeText(ThemePage.this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ThemePage.this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
                 }
 
                 else if (position == 1){
                     SaveSharedPreference.clearBackgroundTheme(getApplicationContext());
                     SaveSharedPreference.setBackgroundTheme(getApplicationContext(),"Light");
                     SetBackgroundLight(view);
-                    Toast.makeText(ThemePage.this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ThemePage.this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
                 }
 
                 else if(position == 2){
                     SaveSharedPreference.clearBackgroundTheme(getApplicationContext());
                     SaveSharedPreference.setBackgroundTheme(getApplicationContext(),"Blue");
                     SetBackGroundBlue(view);
-                    Toast.makeText(ThemePage.this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ThemePage.this, SaveSharedPreference.getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
                 }
 
 /*                if (view.findViewById(R.id.vImage2).getVisibility() == View.VISIBLE) {

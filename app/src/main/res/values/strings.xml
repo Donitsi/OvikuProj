@@ -18,6 +18,7 @@
     <string name="remove_lock">Remove lock</string>
     <string name="save_name">Save</string>
     <string name="lock_name">Lock name</string>
+    <string name="email_incorrect"></string>
     <string-array name="category_more">
         <item name="log_out">Log out</item>
         <item name="add_virtual_key">Add virtual key</item>

@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public class HistoryPageFragment extends Fragment {
 
-    int[] IMAGES = {R.drawable.open_lock, R.drawable.close_lock, R.drawable.secure_lock, R.drawable.open_lock};
+    int[] IMAGES = {R.drawable.open_lock2, R.drawable.close_lock2, R.drawable.open_lock2, R.drawable.close_lock2};
 
     String[] NAMES = {"Liisa", "Heikki", "Tuomas", "Maria"};
 
@@ -55,7 +55,7 @@ public class HistoryPageFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return IMAGES.length;
+            return NAMES.length;
         }
 
         @Override

@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import static com.example.doni.oviku_proj.SaveSharedPreference.getBackgroundTheme;
 import static com.example.doni.oviku_proj.SaveSharedPreference.getLockName;
@@ -139,7 +138,7 @@ public class Settings extends AppCompatActivity {
                             SaveSharedPreference.setLockName(getApplicationContext(), str);
                             lockName = SaveSharedPreference.getLockName(getApplicationContext());
 
-                            Toast.makeText(Settings.this, str, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Settings.this, str, Toast.LENGTH_SHORT).show();
                             refreshData();
                             dialog.dismiss();
 
@@ -222,11 +221,11 @@ public class Settings extends AppCompatActivity {
     public void RemoveLock(View v) {
 
         //Toast.makeText(this, getBackgroundTheme(getApplicationContext()), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this,
+/*        Toast.makeText(this,
                 "Background theme: " + backgroundTheme + ", " +
                 "Notification status: " + notificationStr + ", " +
                 "Lock name: " + SaveSharedPreference.getLockName(getApplicationContext()),
-                Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_SHORT).show();*/
     }
 
 

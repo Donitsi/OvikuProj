@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static com.example.doni.oviku_proj.R.id.logInUsername;
@@ -15,6 +16,8 @@ public class SignInPage extends Activity {
     OvikuDatabaseHelper helper = new OvikuDatabaseHelper(this);
 
     View view;
+
+    TextView textView;
 
 
 
@@ -78,6 +81,8 @@ public class SignInPage extends Activity {
         else{
             Toast toast = Toast.makeText(SignInPage.this, "Your email or password is incorrect", Toast.LENGTH_SHORT);
             toast.show();
+
+            //textView.setText("Your email or password is incorrect");
         }
 
     }

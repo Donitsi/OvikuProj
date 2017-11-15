@@ -6,7 +6,6 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -47,8 +46,8 @@ public class MainPage extends AppCompatActivity {
         final String username = SaveSharedPreference.getUserName(getApplicationContext());
 
 
-        Toast toast = Toast.makeText(MainPage.this, username +" has logged in!", Toast.LENGTH_SHORT);
-        toast.show();
+/*        Toast toast = Toast.makeText(MainPage.this, username +" has logged in!", Toast.LENGTH_SHORT);
+        toast.show();*/
 
         bottomBar = BottomBar.attach(this,savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation_main, new OnMenuTabClickListener() {

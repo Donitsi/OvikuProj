@@ -30,8 +30,8 @@ public class HomePageFragment extends Fragment {
         ImageView lockImage = (ImageView)v.findViewById(R.id.vLock);
 
 
-        loadingText = (TextView)v.findViewById(R.id.loadingText);
-        loadingText.setText("Loading");
+/*        loadingText = (TextView)v.findViewById(R.id.loadingText);
+        loadingText.setText("Loading");*/
 
         settingsButton.setOnClickListener(new View.OnClickListener(){
             @Override
